@@ -1,5 +1,6 @@
 const boxesEl = document.querySelector(".boxes");
 // const changeSqauresEl = document.querySelector(".change-squares");
+const blackEl = document.querySelector(".black")
 const rainbowEl = document.querySelector(".rainbow");
 const eraserEl = document.querySelector(".eraser");
 const clearEl = document.querySelector(".clear");
@@ -14,6 +15,8 @@ let drawing = false;
 let mode = "default";
 
 makeGrid(dimension);
+
+blackEl.addEventListener("click", () => (mode = "default"))
 
 colorEl.addEventListener("input", (event) => {
   console.log(event);
@@ -35,7 +38,7 @@ sliderEl.addEventListener("change", (event) => {
   dimension = event.target.valueAsNumber;
   clear();
   makeGrid(dimension);
-  sizeLabelEl.innerText = dimension + "x" + dimensio
+  sizeLabelEl.innerText = dimension + "x" + dimension
 });
 
 function makeGrid(dimension) {
