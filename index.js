@@ -15,8 +15,10 @@ let drawing = false;
 let mode = "default";
 
 makeGrid(dimension);
+colorButtons()
 
-blackEl.addEventListener("click", () => (mode = "default"))
+blackEl.addEventListener("click", () => (mode = "default"));
+
 
 colorEl.addEventListener("input", (event) => {
   console.log(event);
@@ -26,7 +28,7 @@ colorEl.addEventListener("input", (event) => {
 
 rainbowEl.addEventListener("click", () => (mode = "rainbow"));
 
-eraserEl.addEventListener("click", () => (mode = "eraser"));
+eraserEl.addEventListener("click", () => (mode = "eraser"))
 
 clearEl.addEventListener("click", () => {
   clear();
@@ -97,4 +99,31 @@ function rainbow() {
 
 function clear() {
   boxesEl.innerHTML = "";
+}
+
+function colorButtons() {
+  blackEl.addEventListener("click", () => {
+    blackEl.classList.add("clicked");
+    rainbowEl.classList.remove("clicked");
+    eraserEl.classList.remove("clicked");
+    clearEl.classList.remove("clicked")
+  });
+  rainbowEl.addEventListener("click", () => {
+    blackEl.classList.remove("clicked");
+    rainbowEl.classList.add("clicked");
+    eraserEl.classList.remove("clicked");
+    clearEl.classList.remove("clicked")
+  });
+  eraserEl.addEventListener("click", () => {
+    blackEl.classList.remove("clicked");
+    rainbowEl.classList.remove("clicked");
+    eraserEl.classList.add("clicked");
+    clearEl.classList.remove("clicked")
+  });
+  clearEl.addEventListener("click", () => {
+    blackEl.classList.remove("clicked");
+    rainbowEl.classList.remove("clicked");
+    eraserEl.classList.remove("clicked");
+    clearEl.classList.add("clicked")
+  });
 }
